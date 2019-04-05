@@ -1,0 +1,10 @@
+# General
+sudo dnf install vim gnome-tweaks fzf
+
+# Nvidia Dependencies
+sudo dnf install kernel-devel kernel-headers gcc make dkms acpid libglvnd-glx libglvnd-opengl libglvnd-devel pkgconfig akmod-nvidia "kernel-devel-uname-r == $(uname -r)"
+
+
+# Vim Plugin Dependencies
+sudo dnf install cmake gcc-c++ make python3-devel
+

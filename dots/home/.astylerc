@@ -1,0 +1,17 @@
+--style=allman
+--indent=spaces=4
+--indent-classes
+--indent-switches
+--indent-preproc-define
+--indent-col1-comments
+--break-blocks
+--pad-oper
+--pad-comma
+--pad-header
+--unpad-paren
+-E
+-xb
+--align-pointer=middle
+--add-braces
+--max-code-length=90
+--keep-one-line-blocks

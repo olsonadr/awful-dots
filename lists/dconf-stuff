@@ -1,0 +1,36 @@
+/org/gnome/desktop/interface/gtk-theme
+  'Adwaita-dark'
+
+/org/gnome/desktop/background/picture-uri
+  'file:///home/olsonadr/Pictures/wallpapers/Best/landscape_33.jpg'
+
+/org/gnome/desktop/interface/show-battery-percentage
+  true
+
+/org/gnome/desktop/interface/clock-show-date
+  true
+
+/org/gnome/desktop/wm/preferences/button-layout
+  'appmenu:minimize,maximize,close'
+
+/org/gnome/desktop/input-sources/xkb-options
+  ['ctrl:swap_lwin_lctl']
+
+/org/gnome/desktop/screensaver/picture-uri
+  'file:///home/olsonadr/Pictures/wallpapers/Best/1493818276639.jpg'
+
+/org/gnome/desktop/peripherals/touchpad/speed
+  0.125
+
+/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding
+  '<Primary>t'
+
+/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name
+  'Terminal'
+
+/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command
+  'gnome-terminal'
+
+/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings
+  ['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+
