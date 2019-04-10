@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Custom Startup Script
-Exec=sudo /home/olsonadr/.config/autostart/startup.sh
-Terminal=false
-X-GNOME-Autostart-enabled=true

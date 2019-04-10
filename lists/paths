@@ -1,0 +1,5 @@
+# Paths
+lists_path="./lists"
+dots_path="./files"
+misc_path="./misc"
+installer_path="./extension-installer"

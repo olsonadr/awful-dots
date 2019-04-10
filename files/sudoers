@@ -1,0 +1,5 @@
+
+
+## Custom script
+Cmnd_Alias	CMDS = /home/olsonadr/.config/autostart/startup.sh
+olsonadr	ALL=NOPASSWD: CMDS

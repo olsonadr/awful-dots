@@ -34,3 +34,167 @@
 /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings
   ['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
 
+/org/gnome/desktop/wm/keybindings/switch-applications
+  ['<Primary>Tab']
+
+/org/gnome/desktop/wm/keybindings/switch-applications-backward
+  ['<Primary><Shift>Tab']
+
+/org/gnome/desktop/interface/clock-format
+  '12h'
+
+/org/gtk/settings/file-chooser/clock-format
+  '12h'
+
+/org/gnome/shell/extensions/openweather/city
+  '44.5645659,-123.2620435>Corvallis, Benton County, Oregon, USA >-1'
+
+/org/gnome/shell/extensions/activities-config/activities-config-button-icon-path
+  '/home/olsonadr/Pictures/profile.jpg'
+
+/org/gnome/shell/extensions/activities-config/activities-icon-scale-factor
+  1.4
+
+/org/gnome/shell/extensions/activities-config/activities-icon-padding
+  0
+
+/org/gnome/shell/extensions/activities-config/activities-config-button-no-text
+  true
+
+/org/gnome/shell/extensions/activities-config/activities-text-padding
+  0
+
+/org/gnome/shell/extensions/activities-config/activities-config-hot-corner
+  true
+
+/org/gnome/shell/extensions/cpupower/show-freq-in-taskbar
+  true
+
+/org/gnome/shell/extensions/caffeine/show-notifications
+  false
+
+/org/gnome/shell/extensions/dash-to-dock/dock-position
+  'BOTTOM'
+
+/org/gnome/shell/extensions/dash-to-dock/intellihide-mode
+  'FOCUS_APPLICATION_WINDOWS'
+
+/org/gnome/shell/extensions/dash-to-dock/autohide-in-fullscreen
+  true
+
+/org/gnome/shell/extensions/dash-to-dock/intellihide-mode
+  'ALL_WINDOWS'
+
+/org/gnome/shell/extensions/dash-to-dock/dock-fixed
+  true
+
+/org/gnome/shell/extensions/dash-to-dock/extend-height
+  true
+
+/org/gnome/shell/extensions/dash-to-dock/dash-max-icon-size
+  14
+
+/org/gnome/shell/extensions/dash-to-dock/show-apps-at-top
+  true
+
+/org/gnome/shell/extensions/dash-to-dock/animate-show-apps
+  false
+
+/org/gnome/shell/extensions/dash-to-dock/click-action
+  'minimize-or-previews'
+
+/org/gnome/shell/extensions/dash-to-dock/scroll-action
+  'switch-workspace'
+
+/org/gnome/shell/extensions/dash-to-dock/custom-theme-shrink
+  true
+
+/org/gnome/shell/extensions/dash-to-dock/running-indicator-style
+  'METRO'
+
+/org/gnome/shell/extensions/dash-to-dock/background-color
+  '#1d1d1e'
+
+/org/gnome/shell/extensions/dash-to-dock/transparency-mode
+  'FIXED'
+
+/org/gnome/shell/extensions/dash-to-dock/background-opacity
+  0.6
+
+/org/gnome/shell/extensions/icon-area-horizontal-spacing/hpadding
+  4
+
+/org/gnome/shell/extensions/activities-config/transparent-panel
+  50
+
+/org/gnome/shell/extensions/suspend-button/suspend-default
+  true
+
+/org/gnome/shell/extensions/suspend-button/show-two-buttons
+  false
+
+/org/gnome/shell/extensions/workspaces-to-dock/customize-height
+  true
+
+/org/gnome/shell/extensions/workspaces-to-dock/center-thumbnails-on-dock
+  true
+
+/org/gnome/shell/extensions/workspaces-to-dock/center-thumbnails-option
+  0
+
+/org/gnome/shell/extensions/workspaces-to-dock/background-opacity
+  0.6
+
+/org/gnome/shell/extensions/workspaces-to-dock/toggle-overview
+  false
+
+/org/gnome/shell/extensions/workspaces-to-dock/scroll-with-touchpad
+  true
+
+/org/gnome/shell/extensions/workspaces-to-dock/autohide-in-fullscreen
+  true
+
+/org/gnome/shell/extensions/workspaces-to-dock/toggle-dock-with-keyboard-shortcut
+  false
+
+/org/gnome/shell/extensions/workspaces-to-dock/disable-scroll
+  true
+
+/org/gnome/shell/extensions/workspaces-to-dock/intellihide-action
+  'SHOW_PARTIAL'
+
+/org/gnome/shell/extensions/workspaces-to-dock/customize-thumbnail-visible-width
+  true
+
+/org/gnome/shell/extensions/workspaces-to-dock/thumbnail-visible-width
+  16.0
+
+/org/gnome/shell/extensions/workspaces-to-dock/customize-thumbnail
+  true
+
+/org/gnome/shell/extensions/workspaces-to-dock/thumbnail-size
+  0.07
+
+/org/gnome/shell/extensions/workspaces-to-dock/workspace-caption-height
+  17.0
+
+/org/gnome/shell/extensions/workspaces-to-dock/workspace-caption-taskbar-icon-size
+  10.0
+
+/org/gnome/desktop/interface/gtk-theme
+  'Flat-Remix-GTK-Blue-Dark-Solid'
+
+/org/gnome/desktop/interface/cursor-theme
+  'Bibata_Oil'
+
+/org/gnome/desktop/interface/icon-theme
+  'merged-stuff'
+
+/org/gnome/shell/extensions/user-theme/name
+  'Flat-Remix-Dark-fullPanel'
+
+/org/gnome/desktop/input-sources/xkb-options
+  ['ctrl:swap_lwin_lctl', 'compose:rctrl']
+
+/org/gnome/shell/extensions/status-area-horizontal-spacing/hpadding
+  4

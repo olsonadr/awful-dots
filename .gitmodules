@@ -1,3 +1,15 @@
 [submodule "extension-installer"]
-	path = extension-installer
+	path = misc/extension-installer
 	url = https://github.com/brunelli/gnome-shell-extension-installer.git
+[submodule "misc/polybar"]
+	path = misc/polybar
+	url = https://github.com/jaagr/polybar
+[submodule "misc/gnome3-plus-i3"]
+	path = misc/gnome3-plus-i3
+	url = https://github.com/damko/gnome3-plus-i3.git
+[submodule "misc/libinput-gestures"]
+	path = misc/libinput-gestures
+	url = https://github.com/bulletmark/libinput-gestures.git
+[submodule "files/home/.vim/bundle/Vundle.vim"]
+	path = files/home/.vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
