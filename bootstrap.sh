@@ -134,6 +134,16 @@ then
 fi
 
 
+# Download nVidia driver
+get_bool_in "Download nVidia driver? (y/n) " result
+if [ "$result" == "y" ]
+then
+    wget -O $misc_path/NVIDIA-Linux-x86_64-418.56.run http://us.download.nvidia.com/XFree86/Linux-x86_64/418.56/NVIDIA-Linux-x86_64-418.56.run
+    chmod +x $misc_path/NVIDIA-Linux-*
+fi
+
+
+
 # Other instructions
 get_bool_in "Other step instructions? (y/n) " result
 if [ "$result" == "y" ]
