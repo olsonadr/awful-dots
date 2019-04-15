@@ -194,7 +194,7 @@
   'Flat-Remix-Dark-fullPanel'
 
 /org/gnome/desktop/input-sources/xkb-options
-  ['ctrl:swap_lwin_lctl', 'compose:rctrl']
+  ['ctrl:swap_lwin_lctl', 'compose:rwin']
 
 /org/gnome/shell/extensions/status-area-horizontal-spacing/hpadding
   4
