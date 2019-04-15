@@ -1,5 +1,5 @@
 # General
-sudo dnf install -y vim gnome-tweaks fzf python python-devel python3 python3-devel git inkscape xorg-x11-apps gtk-murrine-engine googlecl ranger rofi
+sudo dnf install -y vim gnome-tweaks fzf python python-devel python3 python3-devel git inkscape xorg-x11-apps gtk-murrine-engine googlecl ranger rofi deja-dup
 
 # Nvidia Dependencies
 sudo dnf install -y kernel-devel kernel-headers gcc make dkms acpid libglvnd-glx libglvnd-opengl libglvnd-devel pkgconfig akmod-nvidia "kernel-devel-uname-r == $(uname -r)"

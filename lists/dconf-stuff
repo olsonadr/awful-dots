@@ -198,3 +198,15 @@
 
 /org/gnome/shell/extensions/status-area-horizontal-spacing/hpadding
   4
+
+/org/gnome/settings-daemon/plugins/power/idle-dim
+  false
+
+/org/gnome/settings-daemon/plugins/power/ambient-enabled
+  false
+
+/org/gnome/desktop/peripherals/touchpad/two-finger-scrolling-enabled
+  true
+
+/org/gnome/desktop/peripherals/touchpad/tap-to-click
+  true

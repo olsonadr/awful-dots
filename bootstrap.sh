@@ -58,6 +58,7 @@ fi
 get_bool_in "Install Japanesque (Gogh) terminal profile? (y/n) " result
 if [ "$result" == "y" ]
 then
+    sudo dnf install gconf-editor
     bash -c  "$(wget -qO- https://git.io/vQgMr)" <<< 73
 fi
 
@@ -74,45 +75,6 @@ then
 fi
 
 
-# Dotfiles
-get_bool_in "Copy dotfiles? (y/n) " result
-if [ "$result" == "y" ]
-then
-    sudo cp -r -f $dots_path/home/. /home/olsonadr/
-    if [ $(sudo cat /etc/sudoers | grep -c "/home/olsonadr/.config/autostart/startup.sh") != "1" ]
-    then
-		cat "$dots_path/sudoers" | sudo tee -a "/etc/sudoers"
-    fi
-fi
-
-
-# Vim Plugins
-get_bool_in "Install Vim plugins? (y/n) " result
-if [ "$result" == "y" ]
-then
-    sudo mkdir -p ~/.vim/pack/tpope/start
-
-    sudo git clone https://github.com/VundleVim/Vundle.vim.git /home/olsonadr/.vim/bundle/Vundle.vim
-    sudo git clone https://tpope.io/vim/eunuch.git /home/olsonadr/.vim/pack/tpope/start/eunuch
-    sudo git clone https://tpope.io/vim/sensible.git /home/olsonadr/.vim/pack/tpope/start/sensible
-    sudo git clone https://tpope.io/vim/surround.git /home/olsonadr/.vim/pack/tpope/start/surround
-
-    vim +PluginInstall +qall
-    $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
-    vim -u NONE -c "helptags eunuch/doc" -c q
-    vim -u NONE -c "helptags sensible/doc" -c q
-    vim -u NONE -c "helptags surround/doc" -c q
-fi
-
-
-# Set dconf stuff
-get_bool_in "Apply dconf settings? (y/n) " result
-if [ "$result" == "y" ]
-then
-    read_dconfs $lists_path/dconf-stuff
-fi
-
-
 # Install libinput-gestures
 get_bool_in "Install libinput gestures? (y/n) " result
 if [ "$result" == "y" ]
@@ -122,6 +84,47 @@ then
     sudo gpasswd -a $USER input
     libinput-gestures-setup autostart
     libinput-gestures-setup start
+fi
+
+
+# Vim Plugins
+get_bool_in "Install Vim plugins? (y/n) " result
+if [ "$result" == "y" ]
+then
+    mkdir -p ~/.vim/pack/tpope/start
+
+    git clone https://github.com/VundleVim/Vundle.vim.git /home/olsonadr/.vim/bundle/Vundle.vim
+    git clone https://tpope.io/vim/eunuch.git /home/olsonadr/.vim/pack/tpope/start/eunuch
+    git clone https://tpope.io/vim/sensible.git /home/olsonadr/.vim/pack/tpope/start/sensible
+    git clone https://tpope.io/vim/surround.git /home/olsonadr/.vim/pack/tpope/start/surround
+
+    vim +PluginInstall +qall
+    vim -u NONE -c "helptags eunuch/doc" -c q
+    vim -u NONE -c "helptags sensible/doc" -c q
+    vim -u NONE -c "helptags surround/doc" -c q
+    $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
+fi
+
+
+# Dotfiles
+get_bool_in "Copy dotfiles? (y/n) " result
+if [ "$result" == "y" ]
+then
+    sudo cp -r -f $dots_path/home/. /home/olsonadr/
+    sudo chown -R olsonadr ~/.config/autostart/
+
+    if [ $(sudo cat /etc/sudoers | grep -c "/home/olsonadr/.config/autostart/startup.sh") != "1" ]
+    then
+		cat "$dots_path/sudoers" | sudo tee -a "/etc/sudoers"
+    fi
+fi
+
+
+# Set dconf stuff
+get_bool_in "Apply dconf settings? (y/n) " result
+if [ "$result" == "y" ]
+then
+    read_dconfs $lists_path/dconf-stuff
 fi
 
 
