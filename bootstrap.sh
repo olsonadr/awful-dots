@@ -5,6 +5,7 @@ git submodule update --init --recursive
 
 # Sources
 lists_path="./lists"
+misc_path="./misc"
 source $lists_path/paths
 source $lists_path/functions
 
@@ -38,6 +39,12 @@ get_bool_in "Wi-fi support for mac? (y/n) " result
 if [ "$result" == "y" ]
 then
     sudo dnf install -y http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm && sudo dnf install -y akmods "kernel-devel-uname-r == $(uname -r)" deja-dup broadcom-wl && sudo akmods
+    sudo dnf localinstall -y --disableexcludes=all $misc_path/wpa_supplicant-2.6-17.fc29.x86_64.rpm
+    if [ $(sudo cat /etc/dnf/dnf.conf | grep -c "exclude=wpa_supplicant") = "0" ]
+    then
+		cat "exclude=wpa_supplicant" | sudo tee -a "/etc/dnf/dnf.conf"
+    fi
+    
 fi
 
 
@@ -59,7 +66,7 @@ get_bool_in "Install Japanesque (Gogh) terminal profile? (y/n) " result
 if [ "$result" == "y" ]
 then
     sudo dnf install gconf-editor
-    bash -c  "$(wget -qO- https://git.io/vQgMr)" <<< 73
+    bash -c  "$(wget -qO- https://git.io/vQgMr)" <<< 74
 fi
 
 
@@ -113,7 +120,7 @@ then
     sudo cp -r -f $dots_path/home/. /home/olsonadr/
     sudo chown -R olsonadr ~/.config/autostart/
 
-    if [ $(sudo cat /etc/sudoers | grep -c "/home/olsonadr/.config/autostart/startup.sh") != "1" ]
+    if [ $(sudo cat /etc/sudoers | grep -c "/home/olsonadr/.config/autostart/startup.sh") = "0" ]
     then
 		cat "$dots_path/sudoers" | sudo tee -a "/etc/sudoers"
     fi
