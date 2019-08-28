@@ -3,12 +3,15 @@
 # Git Stuff
 git submodule update --init --recursive
 
+
 # Sources
 lists_path="./lists"
 misc_path="./misc"
 source $lists_path/paths
 source $lists_path/functions
 
+# Get username
+input "Input your username for home dir... " user
 
 # Set root passwd
 get_bool_in "Set new root password? (y/n) " result
@@ -100,10 +103,10 @@ if [ "$result" == "y" ]
 then
     mkdir -p ~/.vim/pack/tpope/start
 
-    git clone https://github.com/VundleVim/Vundle.vim.git /home/olsonadr/.vim/bundle/Vundle.vim
-    git clone https://tpope.io/vim/eunuch.git /home/olsonadr/.vim/pack/tpope/start/eunuch
-    git clone https://tpope.io/vim/sensible.git /home/olsonadr/.vim/pack/tpope/start/sensible
-    git clone https://tpope.io/vim/surround.git /home/olsonadr/.vim/pack/tpope/start/surround
+    git clone https://github.com/VundleVim/Vundle.vim.git /home/$user/.vim/bundle/Vundle.vim
+    git clone https://tpope.io/vim/eunuch.git /home/$user/.vim/pack/tpope/start/eunuch
+    git clone https://tpope.io/vim/sensible.git /home/$user/.vim/pack/tpope/start/sensible
+    git clone https://tpope.io/vim/surround.git /home/$user/.vim/pack/tpope/start/surround
 
     vim +PluginInstall +qall
     vim -u NONE -c "helptags eunuch/doc" -c q
@@ -117,12 +120,18 @@ fi
 get_bool_in "Copy dotfiles? (y/n) " result
 if [ "$result" == "y" ]
 then
-    sudo cp -r -f $dots_path/home/. /home/olsonadr/
-    sudo chown -R olsonadr ~/.config/autostart/
-
-    if [ $(sudo cat /etc/sudoers | grep -c "/home/olsonadr/.config/autostart/startup.sh") = "0" ]
+    sudo cp -r -f $dots_path/home/. /home/$user/
+    sudo chown -R $user ~/.config/autostart/
+    
+    get_bool_in "Copy Mac Specific dotfiles? (y/n) " result
+    if [ "$result" == "y" ]
     then
-		cat "$dots_path/sudoers" | sudo tee -a "/etc/sudoers"
+	sudo cp -r -f $dots_path/home-mac/. /home/$user/
+    fi
+
+    if [ $(sudo cat /etc/sudoers | grep -c "/home/$user/.config/autostart/startup.sh") = "0" ]
+    then
+        cat "$dots_path/sudoers" | sudo tee -a "/etc/sudoers"
     fi
 fi
 
