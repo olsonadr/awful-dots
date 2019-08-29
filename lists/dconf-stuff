@@ -32,10 +32,10 @@
   ['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
 
 /org/gnome/desktop/wm/keybindings/switch-applications
-  ['<Primary>Tab']
+  ['<Alt>Tab']
 
 /org/gnome/desktop/wm/keybindings/switch-applications-backward
-  ['<Primary><Shift>Tab']
+  ['<Alt><Shift>Tab']
 
 /org/gnome/desktop/interface/clock-format
   '12h'
@@ -207,3 +207,6 @@
 
 /org/gnome/desktop/peripherals/touchpad/tap-to-click
   true
+  
+/org/gnome/desktop/input-sources/xkb-options
+  ['compose:rwin']
