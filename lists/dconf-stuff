@@ -13,9 +13,6 @@
 /org/gnome/desktop/wm/preferences/button-layout
   'appmenu:minimize,maximize,close'
 
-/org/gnome/desktop/input-sources/xkb-options
-  ['ctrl:swap_lwin_lctl']
-
 /org/gnome/desktop/screensaver/picture-uri
   'file:///home/olsonadr/Pictures/wallpapers/Best/1493818276639.jpg'
 

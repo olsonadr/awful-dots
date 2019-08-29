@@ -2,7 +2,7 @@
 sudo dnf install -y vim gnome-tweaks fzf python python-devel python3 python3-devel git inkscape xorg-x11-apps gtk-murrine-engine googlecl ranger rofi deja-dup
 
 # Nvidia Dependencies
-sudo dnf install -y kernel-devel kernel-headers gcc make dkms acpid libglvnd-glx libglvnd-opengl libglvnd-devel pkgconfig akmod-nvidia "kernel-devel-uname-r == $(uname -r)"
+sudo dnf install -y kernel-devel kernel-headers gcc make dkms acpid libglvnd-glx libglvnd-opengl libglvnd-devel pkgconfig akmods "kernel-devel-uname-r == $(uname -r)"
 
 # Vim Plugin Dependencies
 sudo dnf install -y cmake gcc-c++ make python3-devel
@@ -12,3 +12,7 @@ sudo dnf copr enable -y gregw/i3desktop
 sudo dnf copr enable -y dschubert/compton
 sudo dnf copr enable -y yselkowitz/gnome-flashback
 sudo dnf install -y i3-gaps i3status dmenu i3lock xbacklight feh conky compton nitrogen polybar xcb-util-cursor cairo-devel xcb-util-devel libxcb-devel xcb-proto xcb-util-image-devel xcb-util-wm-devel xcb-util-xrm-devel alsa-lib-devel i3-ipc jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel gnome-flashback pulseaudio-libs-devel xcb-util-cursor-devel alsa-utils xbacklight
+
+sudo dnf install -y @development-tools cmake gcc-c++ autoconf automake
+
+sudo dnf install -y xcb-util-xrm-devel xcb-proto xcb-util-devel xcb-util-wm-devel xcb-util-cursor-devel xcb-util-image-devel alsa-lib-devel pulseaudio-libs-devel i3-ipc jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel cairo-devel 

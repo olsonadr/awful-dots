@@ -23,5 +23,5 @@ text_scaling_factor = 1 - (scaling_factor - 1) * 0.06
 call('gsettings set org.gnome.desktop.interface text-scaling-factor {}'.format(text_scaling_factor))
 
 # set dpi with xrandr (for qt apps on X11)
-dpi = 96 * scaling_factor
+dpi = 100 * scaling_factor
 call('xrandr --dpi {}'.format(dpi))

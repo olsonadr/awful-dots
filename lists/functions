@@ -19,6 +19,27 @@ get_bool_in()
     fi
 }
 
+input()
+{
+    local __resultvar=$2
+    local choice=""
+
+    while [ "$choice" = "" ]
+    do
+	read -p "$1" choice
+	if [ "$choice" = "" ]
+	then
+	    echo "Please do not leave field blank"
+	fi
+    done
+
+    if [[ "$__resultvar" ]]; then
+	eval $__resultvar="'$choice'"
+    else
+	echo "$choice"
+    fi
+}
+
 read_dconfs()
 {
     local list_file=$1
