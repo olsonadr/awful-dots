@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # Git Stuff
 git submodule update --init --recursive
 
@@ -10,8 +11,24 @@ misc_path="./misc"
 source $lists_path/paths
 source $lists_path/functions
 
+
 # Get username
 input "Input your username for home dir... " user
+
+
+# Generate sudoers
+cat > $dots_path/sudoers  << EOF
+
+
+## Custom script
+Cmnd_Alias	CMDS = /home/$user/.config/autostart/startup.sh
+$user	ALL=NOPASSWD: CMDS
+EOF
+
+
+# Get Mac Status
+get_bool_in "Are you running on a macbook? (y/n) " mac
+
 
 # Set root passwd
 get_bool_in "Set new root password? (y/n) " result
@@ -38,16 +55,18 @@ fi
 
 
 # Wifi support
-get_bool_in "Wi-fi support for mac? (y/n) " result
-if [ "$result" == "y" ]
+if [ "$mac" == "y" ]
 then
-    sudo dnf install -y http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm && sudo dnf install -y akmods "kernel-devel-uname-r == $(uname -r)" deja-dup broadcom-wl && sudo akmods
-    sudo dnf localinstall -y --disableexcludes=all $misc_path/wpa_supplicant-2.6-17.fc29.x86_64.rpm
-    if [ $(sudo cat /etc/dnf/dnf.conf | grep -c "exclude=wpa_supplicant") = "0" ]
+    get_bool_in "Wi-fi support for mac? (y/n) " result
+    if [ "$result" == "y" ]
     then
-		cat "exclude=wpa_supplicant" | sudo tee -a "/etc/dnf/dnf.conf"
+	sudo dnf install -y http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm && sudo dnf install -y akmods "kernel-devel-uname-r == $(uname -r)" deja-dup broadcom-wl && sudo akmods
+	sudo dnf localinstall -y --disableexcludes=all $misc_path/wpa_supplicant-2.6-17.fc29.x86_64.rpm
+	if [ $(sudo cat /etc/dnf/dnf.conf | grep -c "exclude=wpa_supplicant") = "0" ]
+	then
+	    cat "exclude=wpa_supplicant" | sudo tee -a "/etc/dnf/dnf.conf"
+	fi
     fi
-    
 fi
 
 
@@ -123,8 +142,7 @@ then
     sudo cp -r -f $dots_path/home/. /home/$user/
     sudo chown -R $user ~/.config/autostart/
     
-    get_bool_in "Copy Mac Specific dotfiles? (y/n) " result
-    if [ "$result" == "y" ]
+    if [ "$mac" == "y" ]
     then
 	sudo cp -r -f $dots_path/home-mac/. /home/$user/
     fi
@@ -141,6 +159,11 @@ get_bool_in "Apply dconf settings? (y/n) " result
 if [ "$result" == "y" ]
 then
     read_dconfs $lists_path/dconf-stuff
+
+    if [ "$mac" == "y" ]
+    then
+	read_dconfs $lists_path/dconf-stuff-mac
+    fi
 fi
 
 
@@ -154,13 +177,15 @@ fi
 
 
 # Download nVidia driver
-get_bool_in "Download nVidia driver? (y/n) " result
-if [ "$result" == "y" ]
+if [ "$mac" == "y" ]
 then
-    wget -O $misc_path/NVIDIA-Linux-x86_64-418.56.run http://us.download.nvidia.com/XFree86/Linux-x86_64/418.56/NVIDIA-Linux-x86_64-418.56.run
-    chmod +x $misc_path/NVIDIA-Linux-*
+    get_bool_in "Download nVidia driver? (y/n) " result
+    if [ "$result" == "y" ]
+    then
+	wget -O $misc_path/NVIDIA-Linux-x86_64-418.56.run http://us.download.nvidia.com/XFree86/Linux-x86_64/418.56/NVIDIA-Linux-x86_64-418.56.run
+	chmod +x $misc_path/NVIDIA-Linux-*
+    fi
 fi
-
 
 
 # Other instructions
@@ -169,13 +194,6 @@ if [ "$result" == "y" ]
 then
     echo "nVidia:"
     echo "Boot into text-only mode. Login and navigate to this dotfiles directory and then the misc/dir. Run the nVidia installer within and hit yes to everything. If you did everything in this bootstrap, everything should work on a \"$ sudo reboot\" call."
-    echo
-    echo "sudoers stuff:"
-    echo "Edit /etc/sudoers with vim or the like (with root priveleges), and add the following lines to the end, replacing <USERNAME> with your username and <PATH-TO-BRIGHTNESS-SCRIPT> to the path containing the brightness.sh script found in the misc directory of this project. Lines following:"
-    echo "Cmnd_Alias	CMDS = /home/<USERNAME>/.config/autostart/startup.sh, <PATH-TO-BRIGHTNESS-SCRIPT>/brightness.sh"
-    echo "<USERNAME>	ALL=(ALL) ALL"
-    echo "<USERNAME>	ALL=(ALL) NOPASSWD: CMDS"
-    echo
 fi
 
 

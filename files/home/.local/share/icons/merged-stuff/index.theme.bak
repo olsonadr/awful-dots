@@ -21,7 +21,7 @@ PanelSizes=16,22,24,32,48,64
 DialogDefault=48
 DialogSizes=16,22,24,32,48,64
 
-Directories=actions/scalable,actions/symbolic,animations,apps/scalable,devices/scalable,devices/symbolic,emotes,panel,status/scalable,status/symbolic,apps/scalable,apps/22,apps/48,apps/16,places/16,places/24,places/48-purple,mimetypes/48,categories/22,emblems/16
+Directories=actions/scalable,actions/symbolic,animations,apps/scalable,apps/symbolic,categories/scalable,categories/symbolic,devices/scalable,devices/symbolic,emblems/scalable,emblems/symbolic,emotes,mimetypes/scalable,mimetypes/symbolic,panel,places/scalable,places/symbolic,status/scalable,status/symbolic,apps/scalable,apps/22,apps/48,apps/16,places/16,places/24,places/48-purple,status/22,devices/48,devices/22,mimetypes/48,panel/22,actions/16,actions/22,actions/48,categories/22,emblems/16
 
 # Collated
 [apps/scalable]
